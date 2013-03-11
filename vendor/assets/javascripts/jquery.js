@@ -6821,6 +6821,9 @@ jQuery.extend({
 // because jsdom on node.js will break without it.
 if ( window.getComputedStyle ) {
 	curCSS = function( elem, name ) {
+    if(elem.container !== undefined){
+      elem = elem.container;
+    }
 		var ret, width, minWidth, maxWidth,
 			computed = window.getComputedStyle( elem, null ),
 			style = elem.style;
